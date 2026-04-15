@@ -1,0 +1,27 @@
+services:
+  xcolor-front-dev:
+    image: node:22-alpine
+    container_name: xcolor-front-dev
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+    command: sh -c "npm install && npm run dev -- --host"
+    profiles:
+      - dev
+
+  xcolor-front-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: xcolor-front-prod
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    profiles:
+      - prod
