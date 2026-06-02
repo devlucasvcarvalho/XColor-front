@@ -1,46 +1,32 @@
-# XColor-front
+# XColor — Front-end
 
-Projeto frontend do XColor, desenvolvido em React com Vite.
+Interface em React 19 + Vite consumindo a API XColor.
 
-## 🚀 Tecnologias
+## Pré-requisitos
 
-- [React](https://react.dev/)
-- [Vite](https://vitejs.dev/)
+- [Node.js 18+](https://nodejs.org)
+- Back-end XColor rodando em http://localhost:5257
 
-## 🌿 Estratégia de Branches
-
-| Branch | Ambiente | Descrição |
-|--------|----------|-----------|
-| `dev`  | Desenvolvimento | Branch principal de desenvolvimento. Todas as novas features devem ser criadas a partir desta branch. |
-| `test` | Homologação | Branch de testes e validação antes de ir para produção. |
-| `prod` | Produção | Branch estável com o código em produção. Merge somente via `test`. |
-
-### Fluxo de trabalho
-
-```
-feature/* → dev → test → prod
-```
-
-## ⚙️ Variáveis de Ambiente
-
-| Arquivo | Ambiente |
-|---------|----------|
-| `.env.development` | Desenvolvimento local |
-| `.env.test` | Homologação |
-| `.env.production` | Produção |
-
-## 🛠️ Como rodar o projeto
+## Como rodar
 
 ```bash
-# Instalar dependências
 npm install
-
-# Rodar em desenvolvimento
 npm run dev
-
-# Gerar build de produção
-npm run build
-
-# Pré-visualizar o build
-npm run preview
 ```
+
+Acesse: **http://localhost:5173**
+
+## Telas
+
+| Rota | Descrição |
+|------|-----------|
+| `/` | Login |
+| `/cadastro` | Criar conta |
+| `/usuarios` | Gerenciar usuários |
+| `/produtos` | Gerenciar produtos (requer login) |
+
+## Observações
+
+- O token JWT é salvo automaticamente no `localStorage` após o login
+- Rotas protegidas redirecionam para o login se não houver token
+- O back-end precisa estar rodando antes de abrir o front
